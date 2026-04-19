@@ -48,9 +48,13 @@ pub fn render(f: &mut Frame, app: &App) {
         Line::from("  Esc/q/P      - Close and save"),
         Line::from(""),
         Line::from("Commands:"),
-        Line::from("  :dl        - Open online downloader pane"),
-        Line::from("  :theme     - Toggle theme (or ':theme dark/light')"),
-        Line::from("  :quit      - Exit"),
+        Line::from("  :import <path>      - Import EPUB/TXT file"),
+        Line::from("  :delete [book]      - Delete selected/named book"),
+        Line::from("  :move <bk> <cat>    - Move book to category"),
+        Line::from("  :create <category>  - Create new category"),
+        Line::from("  :dl / :downloader   - Open online downloader"),
+        Line::from("  :theme [light/dark] - Toggle/Set theme"),
+        Line::from("  :quit / :q          - Exit application"),
     ];
 
     let block = Block::default()

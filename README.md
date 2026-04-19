@@ -91,6 +91,20 @@ TermTome is designed to be fully navigable via keyboard. (Press `?` inside the a
 
 *(Note: Mouse scrolling and clicking are also supported if your terminal emulator allows it.)*
 
+### 💬 Command Palette
+
+Press `:` at any time to open the command palette at the bottom of the screen.
+
+| Command | Description |
+| :--- | :--- |
+| `:import <path>` | Import an EPUB or TXT file into your library |
+| `:create <name>` | Create a new library category (folder) |
+| `:delete [book]` | Delete the selected book, or a specific book by name |
+| `:move <bk> <cat>`| Move a book to a different category |
+| `:dl` or `:downloader` | Open the online downloader pane |
+| `:theme [light\|dark]` | Toggle the current theme or set it explicitly |
+| `:quit` or `:q` | Exit the application |
+
 ## 🛠️ Configuration & Data
 
 By default, TermTome stores your imported books, reading progress, and configuration files in your system's standard user data directory. 
