@@ -1,0 +1,11 @@
+/target
+/books/
+*.epub
+*.pdf
+*.mobi
+*.txt
+*.json
+/states/
+/config.json
+
+
