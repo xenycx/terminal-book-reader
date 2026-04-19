@@ -47,6 +47,10 @@ pub fn render(f: &mut Frame, app: &App) {
         Line::from("  +/-          - Change value"),
         Line::from("  Esc/q/P      - Close menu"),
         Line::from(""),
+        Line::from("Help Menu:"),
+        Line::from("  j/k, Up/Down - Scroll up/down"),
+        Line::from("  Esc/q/?      - Close help menu"),
+        Line::from(""),
         Line::from("Commands:"),
         Line::from("  :import <path>      - Import EPUB/TXT file"),
         Line::from("  :delete [book]      - Delete selected/named book"),
@@ -59,6 +63,10 @@ pub fn render(f: &mut Frame, app: &App) {
 
     let block = Block::default()
         .title(" Help ")
+        .title_bottom(
+            ratatui::text::Line::from(" j/k: Scroll \u{2502} q/Esc/?: Close ")
+                .alignment(ratatui::layout::Alignment::Center),
+        )
         .borders(Borders::ALL)
         .border_style(Style::default().fg(theme.border_active))
         .style(Style::default().bg(theme.background).fg(theme.foreground));
