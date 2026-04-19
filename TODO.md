@@ -73,7 +73,7 @@
 - [x] Status bar
   - [x] Current chapter
   - [x] Reading progress
-  - [ ] Time spent
+  - [x] Time spent
   - [x] Reading speed
 - [ ] Help system
   - [x] Keyboard shortcuts help
