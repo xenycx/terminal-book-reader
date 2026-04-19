@@ -8,7 +8,7 @@ TermTome brings the joy of reading directly to your terminal. Whether you're a d
 ![Rust](https://img.shields.io/badge/rust-1.70%2B-orange.svg)
 ![Status](https://img.shields.io/badge/status-active-success.svg)
 
-![Starter Guide](screenshots/starter_guide.jpg)
+![Starter Guide](screenshots/starter_guide.jpg?raw=true&v=2)
 
 ## ✨ Features
 
