@@ -2,8 +2,8 @@ use crate::app::App;
 use crate::ui::theme::get_theme;
 use ratatui::{
     layout::{Constraint, Direction, Layout, Rect},
-    style::Style,
-    text::Line,
+    style::{Color, Style},
+    text::{Line, Span},
     widgets::{Block, Borders, Clear, Paragraph, Wrap},
     Frame,
 };
@@ -63,21 +63,35 @@ pub fn render(f: &mut Frame, app: &App) {
 
     let block = Block::default()
         .title(" Help ")
-        .title_bottom(
-            ratatui::text::Line::from(" j/k: Scroll \u{2502} q/Esc/?: Close ")
-                .alignment(ratatui::layout::Alignment::Center),
-        )
         .borders(Borders::ALL)
         .border_style(Style::default().fg(theme.border_active))
         .style(Style::default().bg(theme.background).fg(theme.foreground));
 
+    f.render_widget(Clear, area);
+    f.render_widget(block.clone(), area);
+
+    let inner_area = block.inner(area);
+    let chunks = Layout::default()
+        .direction(Direction::Vertical)
+        .constraints([Constraint::Min(0), Constraint::Length(2)].as_ref())
+        .split(inner_area);
+
     let p = Paragraph::new(help_text)
-        .block(block)
         .scroll((app.help_scroll, 0))
         .wrap(Wrap { trim: true });
 
-    f.render_widget(Clear, area);
-    f.render_widget(p, area);
+    f.render_widget(p, chunks[0]);
+
+    let bottom_hints = Line::from(vec![
+        Span::styled("j/k", Style::default().fg(Color::Yellow)),
+        Span::raw(" Scroll  "),
+        Span::styled("q/Esc/?", Style::default().fg(Color::Yellow)),
+        Span::raw(" Close"),
+    ]);
+    f.render_widget(
+        Paragraph::new(bottom_hints).alignment(ratatui::layout::Alignment::Center),
+        chunks[1],
+    );
 }
 
 fn centered_rect(percent_x: u16, percent_y: u16, r: Rect) -> Rect {
